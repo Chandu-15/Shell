@@ -25,27 +25,14 @@ else
    echo -e "$R $2 is SUCCESS $N" | tee -a $LOG_FILE
 fi
 }
+#using loops for installing all package which we passed as an arguments
+for package in $@
 # check whether package is installed or not if installed please ignore else install the package
-dnf list installed mysql &>>$LOG_FILE
+dnf list installed $package &>>$LOG_FILE
 if [ $? -ne 0 ]; then
-  dnf install mysql -y &>>$LOG_FILE
-  VALIDATE $? "installing mysql" 
+  dnf install $package -y &>>$LOG_FILE
+  VALIDATE $? "installing $package" 
 else
-  echo -e "Mysql already exists....$Y Skipping $N" | tee -a $LOG_FILE
+  echo -e "$package already exists....$Y Skipping $N" | tee -a $LOG_FILE
 fi
 
-dnf list installed nginx &>>$LOG_FILE
-if [ $? -ne 0 ]; then
- dnf install nginx -y &>>$LOG_FILE
- VALIDATE $? "nginx"
-else
-  echo -e "Nginx already exists....$Y Skipping $N" | tee -a $LOG_FILE
-fi
-
-dnf list installed python3 &>>$LOG_FILE
-if [ $? -ne 0 ]; then
- dnf install python3 -y &>>$LOG_FILE
- VALIDATE $? "python3"
-else
-  echo  -e "Python3 already exists....$Y Skipping $N" | tee -a $LOG_FILE
-fi
