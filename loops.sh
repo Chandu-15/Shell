@@ -28,6 +28,7 @@ fi
 #using loops for installing all package which we passed as an arguments
 for package in $@
 # check whether package is installed or not if installed please ignore else install the package
+do
 dnf list installed $package &>>$LOG_FILE
 if [ $? -ne 0 ]; then
   dnf install $package -y &>>$LOG_FILE
@@ -35,4 +36,5 @@ if [ $? -ne 0 ]; then
 else
   echo -e "$package already exists....$Y Skipping $N" | tee -a $LOG_FILE
 fi
+done
 
