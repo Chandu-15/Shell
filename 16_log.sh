@@ -7,9 +7,9 @@ Y="\e[33m"
 W="\e[0m"
 LOG_FOLDER="/var/log/Shell"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
-LOG_FILE=$($LOG_FOLDER/$SCRIPT_NAME)
+LOG_FILE=$LOG_FOLDER/$SCRIPT_NAME
 #creating log file by getting log path and script details and storing in variables
-mkdir -p LOG_FILE
+mkdir -p $LOG_FILE
 echo "Script execution started at: $(date)" | tee -a LOG_FILE
 
 #check whether script is running under root access or not
