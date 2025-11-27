@@ -1,3 +1,4 @@
+#!/bin/bash
 n1=100
 n2=300
 name="sam"
