@@ -1,3 +1,4 @@
+#!/bin/bash
 echo "please allow all variables to the script : $@"
 echo "please allow all variables to the script : $*"
 echo "script_name: $0"
