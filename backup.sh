@@ -30,8 +30,8 @@ if [ ! -z "${file}" ]; then
     echo "archival-sucees"
     TIMESTAMP=$(date +%F-%H-%M)
     ZIP_NAME="$DEST/app-logs-$TIMESTAMP.zip"
-    find -$SOURCE -name "*.log" -type f -mtime +$DAYS | zip @ -j $ZIP_NAME
-
+    find -$SOURCE -name "*.log" -type f -mtime +$DAYS | zip @ -j "$ZIP_NAME"
+    
     if [ -f $ZIP_NAME ]; then
         while IFS = read -r filepath;
         do
