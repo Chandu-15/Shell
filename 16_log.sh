@@ -14,7 +14,7 @@ echo "Script execution started at: $(date)" | tee -a $LOG_FILE
 
 #check whether script is running under root access or not
 if [ $USER_ID -ne 0 ]; then
-   echo -e " $R ERROR:Please execute the script under root access $N" | tee -a $$LOG_FILE
+   echo -e " $R ERROR:Please execute the script under root access $N" | tee -a $LOG_FILE
    exit 1 # we are manually forcing to exit from execution if any error occured
 fi
 #creating function for  validation once package installed 
