@@ -1,7 +1,7 @@
 #!/bin/bash
 SOURCE=$1
 DEST=$2
-USER_ID=$(id -u)
+USERID=$(id -u)
 DAYS=${3:-14}
 if [ $USERID -ne 0 ]; then
     echo "ERROR:: Please run this script with root privelege"
