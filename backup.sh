@@ -33,7 +33,7 @@ if [ ! -z "${file}" ]; then
     echo "$file" | zip @ -j "$ZIP_NAME"
     
     if [ -f $ZIP_NAME ]; then
-        while IFS = read -r filepath;
+        while IFS= read -r filepath;
         do
         rm -rf $filepath
         done <<< $file
